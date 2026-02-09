@@ -35,8 +35,11 @@ COPY package*.json ./
 # Install dependencies
 RUN npm ci --only=production
 
-# Install Playwright browsers
-RUN npx playwright install chromium
+# Set Playwright browser path
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
+# Install Playwright browsers (headless shell version for production)
+RUN npx playwright install --with-deps chromium
 
 # Copy application code
 COPY . .
