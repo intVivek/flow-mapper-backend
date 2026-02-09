@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: flow-mapper-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD
+        value: 0
+    # Add any additional environment variables you need from your dashboard
